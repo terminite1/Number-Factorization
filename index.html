@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+<title>factorization thing</title>
+<script>
+    var debris;
+    function calculate() {
+        debris = document.forms["debris_input"]["netherite_ingots"].value;
+
+        var factors = [];
+        var i = 2;
+        while (i <= debris) {
+            if (debris % i == 0) {
+                factors.push(i);
+                debris /= i;
+            } else {
+                i++;
+            }
+        }
+        var output = document.getElementById("output")
+        output.innerHTML = factors.join(" * ");
+    }
+</script>
+</head>
+<body>
+<h1>number factorization</h1>
+
+
+
+
+<form name="debris_input" action="javascript:calculate();">
+    <div>
+        <label for="netherite ingots">yo numbah:</label>
+        <input type="number" id="netherite_ingots" name="netherite_ingots" placeholder="amount" required>
+        <br><br>
+        <input type="submit" value="go">
+    </div>
+</form>
+<br>
+output:
+<p id="output"></p>
+</body>
+</html>
